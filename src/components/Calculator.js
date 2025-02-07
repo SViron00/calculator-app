@@ -1,10 +1,11 @@
 import React from "react";
+import Display from "./Display";
 
 const Calculator = () => {
   return (
     <div className="calculator-container">
       <div className="calculator-wrapper">
-        <div className="display-placeholder"></div>
+        <Display />
         <div className="keypad-grid">
           <button className="btn">AC</button>
           <button className="btn">±</button>
