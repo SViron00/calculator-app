@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Display from "./Display";
+import Keypad from "./Keypad";
 
 const Calculator = () => {
   const [currentValue, setCurrentValue] = useState("0");
@@ -64,61 +65,12 @@ const Calculator = () => {
           currentValue={currentValue}
           previousValue={previousValue ? `${previousValue} ${operator}` : ""}
         />
-        <div className="keypad-grid">
-          <button className="btn" onClick={handleClear}>
-            AC
-          </button>
-          <button className="btn">±</button>
-          <button className="btn">%</button>
-          <button className="btn operator" onClick={() => handleOperator("÷")}>
-            ÷
-          </button>
-          <button className="btn" onClick={() => handleNumberClick("7")}>
-            7
-          </button>
-          <button className="btn" onClick={() => handleNumberClick("8")}>
-            8
-          </button>
-          <button className="btn" onClick={() => handleNumberClick("9")}>
-            9
-          </button>
-          <button className="btn operator" onClick={() => handleOperator("×")}>
-            ×
-          </button>
-          <button className="btn" onClick={() => handleNumberClick("4")}>
-            4
-          </button>
-          <button className="btn" onClick={() => handleNumberClick("5")}>
-            5
-          </button>
-          <button className="btn" onClick={() => handleNumberClick("6")}>
-            6
-          </button>
-          <button className="btn operator" onClick={() => handleOperator("-")}>
-            -
-          </button>
-          <button className="btn" onClick={() => handleNumberClick("1")}>
-            1
-          </button>
-          <button className="btn" onClick={() => handleNumberClick("2")}>
-            2
-          </button>
-          <button className="btn" onClick={() => handleNumberClick("3")}>
-            3
-          </button>
-          <button className="btn operator" onClick={() => handleOperator("+")}>
-            +
-          </button>
-          <button className="btn zero" onClick={() => handleNumberClick("0")}>
-            0
-          </button>
-          <button className="btn" onClick={() => handleNumberClick(".")}>
-            .
-          </button>
-          <button className="btn operator" onClick={handleEquals}>
-            =
-          </button>
-        </div>
+        <Keypad
+          onNumberClick={handleNumberClick}
+          onOperatorClick={handleOperator}
+          onClear={handleClear}
+          onEquals={handleEquals}
+        />
       </div>
     </div>
   );
